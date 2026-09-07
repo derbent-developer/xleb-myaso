@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ХлебМясо — пекарня, мясо и полуфабрикаты в Дербенте</title>
+<meta name="description" content="ХлебМясо в Дербенте: свежий хлеб из своей печи, халяль-мясо, колбасы, сыры, полуфабрикаты, хинкал и пельмени, урбеч, орехи, овощи и фрукты. Заказ в один клик через WhatsApp.">
+<meta name="theme-color" content="#FFA000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ХлебМясо — пекарня, мясо и полуфабрикаты">
+<meta property="og:description" content="Свежий хлеб, халяль-мясо, полуфабрикаты и всё для стола. Заказ через WhatsApp.">
+<meta property="og:image" content="assets/sign-night.jpg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="jsError"></div>
+
+<!-- ================= ВЕРХНЯЯ ПОЛОСА ================= -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar__items">
+      <span class="topbar__halal">✓ ХАЛЯЛЬ</span>
+      <a class="topbar__item topbar__item--hide" id="topAddress" href="#" target="_blank" rel="noopener">📍 <span></span></a>
+      <span class="topbar__item topbar__item--hide" id="topHours">🕗 <span></span></span>
+    </div>
+    <div class="topbar__items">
+      <a class="topbar__item topbar__phone" id="topPhone" href="#">📞 <span></span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ШАПКА ================= -->
+<header class="header">
+  <div class="wrap">
+    <div class="header__row">
+      <a class="logo" href="#top">
+        <img class="logo__img" src="assets/logo.png" alt="Логотип ХлебМясо" width="48" height="48">
+        <span class="logo__text">
+          <span class="logo__name">Хлеб<em>Мясо</em></span>
+          <span class="logo__sub">Дербент</span>
+        </span>
+      </a>
+
+      <div class="search" id="searchBox">
+        <span class="search__icon">🔎</span>
+        <input type="search" id="searchInput" placeholder="Поиск: хинкал, баранина, урбеч, чуду…" autocomplete="off" aria-label="Поиск товаров">
+        <button type="button" class="search__clear" data-action="clear-search" aria-label="Очистить поиск">✕</button>
+      </div>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost btn--hide-mobile" id="headPhone" href="#">Позвонить</a>
+        <button type="button" class="btn btn--primary cart-btn" data-action="open-cart">
+          🛒 <span class="btn__label">Корзина</span>
+          <span class="cart-btn__count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="catbar">
+    <div class="wrap"><div class="catbar__scroll" id="catbar"></div></div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= ХИРО ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero__box" style="background-image:url('assets/sign-night.jpg')">
+        <div class="hero__inner">
+          <span class="hero__eyebrow">Пекарня · мясо · полуфабрикаты</span>
+          <h1>Свежий хлеб и <em>халяль-мясо</em> каждый день</h1>
+          <p>Печём с раннего утра, мясо рубим при вас, полуфабрикаты лепим руками. Соберите корзину — и отправьте заказ нам в WhatsApp одним нажатием.</p>
+          <div class="hero__cta">
+            <button type="button" class="btn btn--lg btn--primary" data-action="go-catalog">Открыть каталог</button>
+            <button type="button" class="btn btn--lg btn--light" data-action="wa-chat">💬 Написать в WhatsApp</button>
+          </div>
+          <div class="hero__facts">
+            <div class="fact"><div class="fact__num" id="factCount">0</div><div class="fact__label">товаров в наличии</div></div>
+            <div class="fact"><div class="fact__num">4.7</div><div class="fact__label">рейтинг · 671 отзыв</div></div>
+            <div class="fact"><div class="fact__num">08–22</div><div class="fact__label">работаем без выходных</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ПРЕИМУЩЕСТВА ================= -->
+  <section class="perks">
+    <div class="wrap">
+      <div class="perks__grid">
+        <div class="perk"><span class="perk__icon">🥖</span><div><p class="perk__title">Своя пекарня</p><p class="perk__text">Хлеб, чуду и выпечка из печи несколько раз в день</p></div></div>
+        <div class="perk"><span class="perk__icon">🥩</span><div><p class="perk__title">Мясо халяль</p><p class="perk__text">Охлаждённое, разделываем и рубим при вас</p></div></div>
+        <div class="perk"><span class="perk__icon">🛵</span><div><p class="perk__title">Доставка по Дербенту</p><p class="perk__text" id="perkDelivery">—</p></div></div>
+        <div class="perk"><span class="perk__icon">💳</span><div><p class="perk__title">Оплата как удобно</p><p class="perk__text">Наличными, картой или переводом при получении</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= КАТЕГОРИИ ПЛИТКАМИ ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <h2 class="section__title">Что у нас <em>есть</em></h2>
+          <div class="section__meta">Нажмите на раздел — каталог отфильтруется</div>
+        </div>
+      </div>
+      <div class="cattiles" id="cattiles"></div>
+    </div>
+  </section>
+
+  <!-- ================= КАТАЛОГ ================= -->
+  <section class="section section--pb" id="catalog">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <h2 class="section__title" id="catTitle">Все товары</h2>
+          <div class="section__meta" id="catMeta">—</div>
+        </div>
+        <select class="sort" id="sort" aria-label="Сортировка">
+          <option value="default">Сначала популярные</option>
+          <option value="cheap">Сначала дешёвые</option>
+          <option value="expensive">Сначала дорогие</option>
+          <option value="name">По названию А–Я</option>
+        </select>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= ГАЛЕРЕЯ ================= -->
+  <section class="gallery">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <h2 class="section__title">Как у нас в <em>магазине</em></h2>
+          <div class="section__meta">Живые фотографии с витрин и пекарни</div>
+        </div>
+        <a class="btn btn--ghost" id="galleryMap" href="#" target="_blank" rel="noopener" style="color:#fff;border-color:rgba(255,255,255,.25)">Смотреть на Яндекс.Картах</a>
+      </div>
+      <div class="gallery__grid" id="galleryGrid"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= ПОДВАЛ ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">
+          <img class="logo__img" src="assets/logo.png" alt="ХлебМясо" width="48" height="48">
+          <span class="logo__text"><span class="logo__name">Хлеб<em>Мясо</em></span><span class="logo__sub">Дербент</span></span>
+        </div>
+        <p class="footer__about">Пекарня и магазин продуктов: свежий хлеб, халяль-мясо, колбасы и сыры, полуфабрикаты ручной лепки, урбеч, орехи, овощи и фрукты — всё для вашего стола в одном месте.</p>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <ul class="footer__list">
+          <li><a id="footPhone" href="#">—</a></li>
+          <li><a href="#" data-action="wa-chat">WhatsApp — написать</a></li>
+          <li><a id="footMap" href="#" target="_blank" rel="noopener">Мы на Яндекс.Картах</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Магазин</h4>
+        <ul class="footer__list">
+          <li id="footAddress">—</li>
+          <li id="footHours">—</li>
+          <li id="footZone">—</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year"></span> ХлебМясо</span>
+      <span>Цены справочные — актуальные уточняйте при заказе.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= КОРЗИНА ================= -->
+<div class="overlay" id="overlay" data-action="close-cart"></div>
+
+<aside class="drawer" id="drawer" aria-label="Корзина">
+  <div class="drawer__head">
+    <h3 class="drawer__title">Корзина <span id="drawerCount"></span></h3>
+    <button type="button" class="icon-btn" data-action="close-cart" aria-label="Закрыть корзину">✕</button>
+  </div>
+  <div class="drawer__body" id="cartBody"></div>
+  <div class="drawer__foot" id="cartFoot" hidden></div>
+</aside>
+
+<!-- ================= ОФОРМЛЕНИЕ ЗАКАЗА ================= -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal__scrim" data-action="close-modal"></div>
+  <div class="modal__card">
+    <div class="modal__head">
+      <h3 class="modal__title" id="modalTitle">Оформление заказа</h3>
+      <button type="button" class="icon-btn" data-action="close-modal" aria-label="Закрыть">✕</button>
+    </div>
+    <div class="modal__body">
+      <form id="orderForm" novalidate>
+        <div class="field">
+          <label>Способ получения</label>
+          <div class="segmented">
+            <button type="button" class="seg is-active" data-action="mode" data-mode="delivery">🛵 Доставка<small id="segDeliveryNote">—</small></button>
+            <button type="button" class="seg" data-action="mode" data-mode="pickup">🏪 Самовывоз<small>Забрать в магазине</small></button>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="fName">Имя <span class="req">*</span></label>
+            <input type="text" id="fName" placeholder="Как к вам обращаться" autocomplete="name">
+            <div class="field__err">Укажите имя</div>
+          </div>
+          <div class="field">
+            <label for="fPhone">Телефон <span class="req">*</span></label>
+            <input type="tel" id="fPhone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel">
+            <div class="field__err">Укажите телефон (не менее 10 цифр)</div>
+          </div>
+        </div>
+
+        <div class="field" id="addressField">
+          <label for="fAddress">Адрес доставки <span class="req">*</span></label>
+          <input type="text" id="fAddress" placeholder="Улица, дом, квартира, подъезд" autocomplete="street-address">
+          <div class="field__err">Укажите адрес доставки</div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="fTime">Когда удобно</label>
+            <select id="fTime">
+              <option>Как можно скорее</option>
+              <option>Через 1–2 часа</option>
+              <option>Сегодня к вечеру</option>
+              <option>Завтра утром</option>
+              <option>Свяжусь и уточню</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fPay">Оплата</label>
+            <select id="fPay">
+              <option>Наличными при получении</option>
+              <option>Картой при получении</option>
+              <option>Переводом по номеру телефона</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="fComment">Комментарий к заказу</label>
+          <textarea id="fComment" placeholder="Например: баранину порубить на куски, хлеб потеплее, позвонить за 10 минут"></textarea>
+        </div>
+
+        <div class="summary" id="orderSummary"></div>
+
+        <div class="modal__foot">
+          <button type="submit" class="btn btn--lg btn--wa btn--block">💬 Отправить заказ в WhatsApp</button>
+          <p class="note">Заказ откроется готовым сообщением в WhatsApp — вам останется нажать «Отправить». Менеджер подтвердит наличие и сумму.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ================= МОБИЛЬНАЯ ПАНЕЛЬ ================= -->
+<div class="mobar" id="mobar">
+  <button type="button" class="btn btn--primary btn--lg btn--block" data-action="open-cart">🛒 Корзина · <span id="mobarSum">0 ₽</span></button>
+</div>
+
+<div class="toast" id="toast"><span id="toastText"></span></div>
+
+<script src="js/config.js"></script>
+<script src="js/products.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
